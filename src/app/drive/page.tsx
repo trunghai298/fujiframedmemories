@@ -9,7 +9,7 @@ const Drive = () => {
 
   const fetchFiles = async (tokens: string) => {
     const res = await fetch(
-      `http://localhost:3000/api/drive/list?tokens=${tokens}&limit=100&offset=0`
+      `https://fujiframedmemories.vercel.app/api/drive/list?tokens=${tokens}&limit=100&offset=0`
     );
     const files = await res.json();
     return files.files;
@@ -20,7 +20,7 @@ const Drive = () => {
     const tokens = url.searchParams.get("tokens");
     if (tokens) {
       localStorage.setItem("tokens", tokens);
-      window.location.replace("http://localhost:3000/drive");
+      window.location.replace("https://fujiframedmemories.vercel.app/drive");
     }
   }, []);
 

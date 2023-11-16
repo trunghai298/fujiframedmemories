@@ -9,7 +9,9 @@ export const GET = async (req: Request, res: Response) => {
       const { tokens } = await auth2Client.getToken(code);
       auth2Client.setCredentials(tokens);
       return NextResponse.redirect(
-        `http://localhost:3000/drive?tokens=${JSON.stringify(tokens)}`
+        `https://fujiframedmemories.vercel.app/drive?tokens=${JSON.stringify(
+          tokens
+        )}`
       );
     }
   } catch (error) {
