@@ -65,7 +65,7 @@ const Drive = () => {
   };
 
   return (
-    <div className="xl:columns-4 md:columns-3 sm:columns-2 m-0 pt-10 px-32 bg-white">
+    <div className="xl:columns-4 md:columns-3 sm:columns-2 m-0 xl:pt-10 xl:px-32 md:pt-6 md:px-24 sm:pt-2 sm:px-8 bg-white">
       {files.map((file: any) => (
         <div
           key={file.id}
