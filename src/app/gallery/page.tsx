@@ -9,7 +9,7 @@ const Drive = () => {
 
   const fetchFiles = async (tokens: string) => {
     const res = await fetch(
-      `https://fujiframedmemories.vercel.app/api/gallery/list?tokens=${tokens}&limit=100&offset=0`
+      `https://fujiframedmemories.vercel.app/api/drive/list?tokens=${tokens}&limit=100&offset=0`
     );
     const files = await res.json();
     return files.files;
