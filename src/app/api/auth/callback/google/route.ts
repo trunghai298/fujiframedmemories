@@ -9,7 +9,7 @@ export const GET = async (req: Request, res: Response) => {
       const { tokens } = await auth2Client.getToken(code);
       auth2Client.setCredentials(tokens);
       return NextResponse.redirect(
-        `https://fujiframedmemories.vercel.app/drive?tokens=${JSON.stringify(
+        `https://fujiframedmemories.vercel.app/gallery?tokens=${JSON.stringify(
           tokens
         )}`
       );
