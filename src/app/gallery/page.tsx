@@ -34,7 +34,8 @@ const Drive = () => {
     const ggTokens = localStorage.getItem("tokens");
     if (ggTokens) {
       fetchFiles(ggTokens).then((files) => {
-        setFiles(files);
+        const shuffledFiles = shuffle(files);
+        setFiles(shuffledFiles as any);
       });
     }
   }, []);
