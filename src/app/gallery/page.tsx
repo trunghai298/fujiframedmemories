@@ -140,12 +140,12 @@ const Drive = () => {
                     />
                   </svg>
                 </button>
-                <Image
+                <img
                   src={imageSelected?.imgLink}
                   alt={`${imageSelected.imageMediaMetadata.width}x${imageSelected.imageMediaMetadata.height}`}
                   className="rounded-3xl w-full px-1 py-2 cursor-pointer"
-                  quality={20}
-                  loader={loaderProp}
+                  // quality={20}
+                  // loader={loaderProp}
                   width={100}
                   height={100}
                 />
