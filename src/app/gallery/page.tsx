@@ -2,17 +2,23 @@
 import React, { useEffect, useState } from "react";
 import { shuffle } from "lodash-es";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Drive = () => {
   const [files, setFiles] = useState([]);
   const [imageSelected, setImageSelected] = useState<any>(null);
+  const router = useRouter();
 
   const fetchFiles = async (tokens: string) => {
-    const res = await fetch(
-      `https://fujiframedmemories.vercel.app/api/drive/list?tokens=${tokens}&limit=100&offset=0`
-    );
-    const files = await res.json();
-    return files.files;
+    try {
+      const res = await fetch(
+        `https://fujiframedmemories.vercel.app/api/drive/list?tokens=${tokens}&limit=100&offset=0`
+      );
+      const files = await res.json();
+      return files.files;
+    } catch (error) {
+      router.push("/");
+    }
   };
 
   useEffect(() => {
@@ -20,7 +26,7 @@ const Drive = () => {
     const tokens = url.searchParams.get("tokens");
     if (tokens) {
       localStorage.setItem("tokens", tokens);
-      window.location.replace("https://fujiframedmemories.vercel.app/gallery");
+      router.replace("https://fujiframedmemories.vercel.app/gallery");
     }
   }, []);
 
